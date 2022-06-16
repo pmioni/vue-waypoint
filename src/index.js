@@ -16,6 +16,7 @@ const VueWaypoint = {
 
     // instance method
     Vue.prototype.$scrollDirection = () => {
+      WaypointScroll.updateScrollDirection()
       return WaypointScroll.getScrollDirection()
     }
 

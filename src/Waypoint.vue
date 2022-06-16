@@ -35,13 +35,13 @@
       }
     },
     methods: {
-      _vueWaypointHandle (collider) {
+      _vueWaypointHandle () {
         if (!this.colliding) {
           this.colliding = true
           this._emitWaypointEvent()
         }
       },
-      _vueWaypointHandleOff (collider) {
+      _vueWaypointHandleOff () {
         if (this.colliding) {
           this.colliding = false
           this._emitWaypointEvent()
@@ -50,10 +50,10 @@
       _emitWaypointEvent () {
         if (this.active) {
           // basic Waypoint event
-          this.$emit('waypoint-' + this.going)
+          this.$emit('waypoint-' + this.going, this.$el)
 
           // complete event with full description
-          this.$emit('waypoint', this.$scrollDirection(), this.going)
+          this.$emit('waypoint', this.$scrollDirection(), this.going, this.$el)
         }
       }
     }
